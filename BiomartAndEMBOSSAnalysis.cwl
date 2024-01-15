@@ -29,8 +29,8 @@ steps:
   retrieve_sequences:
     run: biomart-tool.cwl
     in:
-      service_url: $(inputs.biomart_service_url)
-      query_species: $(inputs.query_species)
+      service_url:  biomart_service_url
+      query_species: query_species
     out:
       aligned_sequences: aligned_sequences.fasta
       sequence_ids: sequence_ids.txt
@@ -38,8 +38,8 @@ steps:
   align_sequences:
     run: emboss-tool.cwl
     in:
-      service_url: $(inputs.emboss_service_url)
-      sequences: $(inputs.aligned_sequences)
+      service_url: emboss_service_url
+      sequences: aligned_sequences
     out:
       aligned_sequences: output.aln
       sequence_ids: output.ids
